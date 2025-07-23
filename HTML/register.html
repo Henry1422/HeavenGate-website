@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    <link rel="stylesheet" href="../CSS/register.css">
+</head>
+<body>
+
+    <section class="forms">
+        <article class="signin-container">
+            <h2>Sign In</h2>
+            <form>
+                <input type="email" placeholder="E-mail" required />
+                <input type="password" placeholder="Password" required />
+                <a href="#" class="forgot" id="signin">Don't Have an Account?</a>
+                <a href="../../index.html" class="" style="display: block;text-align: left;margin-bottom: 20px;font-size: 1rem;color: var(--moody-gray);font-weight: 600;font-family: var(--font-josefin);letter-spacing: 1px;text-decoration: none;
+                ">Home</a>
+                <button type="submit" class="signin-btn">Sign In</button>
+            </form>
+            
+            <p class="or">Or Sign in with</p>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-google"></i></a>
+                <a href="#"><i class="fab fa-apple"></i></a>
+                <a href="#"><i class="fab fa-x-twitter"></i></a>
+            </div>
+            
+            <a href="#" class="agreement">Learn user licence agreement</a>
+        </article>
+        <article class="signup-container">
+            <h2>Sign Up</h2>
+            <form>
+                <input type="email" placeholder="Fullname" required />
+                <input type="email" placeholder="E-mail" required />
+                <input type="email" placeholder="Phone Number" required />
+                <input type="password" placeholder="Password" required />
+                <a href="#" class="forgot" id="signup">Already Have an account?</a>
+                <a href="../../index.html" class="" style="display: block;text-align: left;margin-bottom: 20px;font-size: 1rem;color: var(--moody-gray);font-weight: 600;font-family: var(--font-josefin);letter-spacing: 1px;text-decoration: none;
+                ">Home</a>
+                <button type="submit" class="signin-btn">Sign Up</button>
+            </form>
+        
+            <p class="or">Or Sign in with</p>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-google"></i></a>
+                <a href="#"><i class="fab fa-apple"></i></a>
+                <a href="#"><i class="fab fa-x-twitter"></i></a>
+            </div>
+        
+            <a href="#" class="agreement">Learn user licence agreement</a>
+        </article>
+    </section>
+
+<script>
+
+    const signinCont = document.querySelector(".signin-container")
+    const signin = document.querySelector("#signin")
+    const signupCont = document.querySelector(".signup-container")
+    const signup = document.querySelector("#signup")
+    const forgot = document.querySelector('.forgot')
+
+    signin.addEventListener("click",function(){
+        signinCont.style.opacity = "0"
+        signinCont.style.transform = "translateX(-300px)"
+        signupCont.style.opacity = "1"
+        signupCont.style.transform = "translateX(0px)"
+    })
+    signup.addEventListener("click",function(){
+        signupCont.style.opacity = "0"
+        signupCont.style.transform = "translateX(-500px)"
+        signinCont.style.opacity = "1"
+        signinCont.style.transform = "translateX(0px)"
+    })
+    const urlParams = new URLSearchParams(window.location.search);
+    const formType = urlParams.get('form');
+
+    if (formType === 'signup') {
+      signin.click(); 
+    } else {
+      signup.click();
+    }
+</script>
+</body>
+</html>
